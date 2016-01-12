@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--DesignerVC-->
+        <scene sceneID="ddU-6z-Up5">
+            <objects>
+                <viewController storyboardIdentifier="HTDesignerVC" id="Ymb-DU-p8o" customClass="HTDesignerVC" customModule="hairtouch_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dgz-Ig-apm"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ce1-VD-nya"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H89-qC-D3S">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T0T-kJ-VYn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmm-13-o0N">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="60"/>
+                                        <state key="normal" title="&lt; Back"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="Ymb-DU-p8o" eventType="touchUpInside" id="OOO-22-w0D"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디자이너 조회" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-JW-qTK">
+                                        <rect key="frame" x="113.5" y="19.5" width="93" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Itl-bh-Tfx">
+                                        <rect key="frame" x="0.0" y="59" width="320" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Ztl-qu-uEr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Gmm-13-o0N" firstAttribute="top" secondItem="T0T-kJ-VYn" secondAttribute="top" id="CTu-xb-Bnw"/>
+                                    <constraint firstAttribute="height" constant="60" id="IZ7-9e-ONc"/>
+                                    <constraint firstItem="2ky-JW-qTK" firstAttribute="centerX" secondItem="T0T-kJ-VYn" secondAttribute="centerX" id="Jvv-TS-5m6"/>
+                                    <constraint firstItem="2ky-JW-qTK" firstAttribute="centerY" secondItem="T0T-kJ-VYn" secondAttribute="centerY" id="O4X-I8-gGy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Itl-bh-Tfx" secondAttribute="trailing" id="a3M-0r-R9Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gmm-13-o0N" secondAttribute="bottom" id="de8-Pa-8y5"/>
+                                    <constraint firstItem="Gmm-13-o0N" firstAttribute="leading" secondItem="T0T-kJ-VYn" secondAttribute="leading" id="flg-VD-DWS"/>
+                                    <constraint firstItem="Itl-bh-Tfx" firstAttribute="leading" secondItem="T0T-kJ-VYn" secondAttribute="leading" id="oBR-K3-rTo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Itl-bh-Tfx" secondAttribute="bottom" id="zNt-CL-4xP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T0T-kJ-VYn" firstAttribute="top" secondItem="H89-qC-D3S" secondAttribute="top" id="5r3-9o-MFb"/>
+                            <constraint firstItem="T0T-kJ-VYn" firstAttribute="leading" secondItem="H89-qC-D3S" secondAttribute="leading" id="Ixg-Lx-lCk"/>
+                            <constraint firstAttribute="trailing" secondItem="T0T-kJ-VYn" secondAttribute="trailing" id="Yun-31-zWY"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="riN-7c-e53" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="306"/>
+        </scene>
+    </scenes>
+</document>

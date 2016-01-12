@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--DesignerVC-->
+        <scene sceneID="DZE-vs-61f">
+            <objects>
+                <viewController storyboardIdentifier="HTDesignerVC" id="s0f-Q9-qDp" customClass="HTDesignerVC" customModule="hairtouch_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qLU-7q-wjP"/>
+                        <viewControllerLayoutGuide type="bottom" id="t5W-QU-aiH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0xD-ZS-Rub">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0TB-yF-kdg" userLabel="네비게이션 바">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m44-vC-A5d" userLabel="뒤로가기">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="60"/>
+                                        <state key="normal" title="&lt; Back"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="s0f-Q9-qDp" eventType="touchUpInside" id="J2Z-9D-uMS"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7P-jh-Ns8" userLabel="구분선">
+                                        <rect key="frame" x="0.0" y="59" width="320" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="SNC-D9-W52"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디자이너 조회" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHx-Or-bpc" userLabel="타이틀">
+                                        <rect key="frame" x="111" y="18.5" width="98.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="18"/>
+                                        <color key="textColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Ckl-PK-udq"/>
+                                    <constraint firstAttribute="height" constant="60" id="GXW-c7-jae"/>
+                                    <constraint firstAttribute="bottom" secondItem="m44-vC-A5d" secondAttribute="bottom" id="Hrs-mq-C26"/>
+                                    <constraint firstAttribute="bottom" secondItem="X7P-jh-Ns8" secondAttribute="bottom" id="Njr-aX-8OR"/>
+                                    <constraint firstItem="m44-vC-A5d" firstAttribute="leading" secondItem="0TB-yF-kdg" secondAttribute="leading" id="ieR-qC-EkD"/>
+                                    <constraint firstItem="X7P-jh-Ns8" firstAttribute="leading" secondItem="0TB-yF-kdg" secondAttribute="leading" id="kRO-ll-VvR"/>
+                                    <constraint firstAttribute="trailing" secondItem="X7P-jh-Ns8" secondAttribute="trailing" id="noP-od-fCx"/>
+                                    <constraint firstItem="MHx-Or-bpc" firstAttribute="centerX" secondItem="0TB-yF-kdg" secondAttribute="centerX" id="rfi-GU-Faj"/>
+                                    <constraint firstItem="m44-vC-A5d" firstAttribute="top" secondItem="0TB-yF-kdg" secondAttribute="top" id="wxQ-r7-2zN"/>
+                                    <constraint firstItem="MHx-Or-bpc" firstAttribute="centerY" secondItem="0TB-yF-kdg" secondAttribute="centerY" id="z5I-Um-eo2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0TB-yF-kdg" secondAttribute="trailing" id="O8N-6K-jcL"/>
+                            <constraint firstItem="0TB-yF-kdg" firstAttribute="leading" secondItem="0xD-ZS-Rub" secondAttribute="leading" id="diB-9r-gTr"/>
+                            <constraint firstItem="0TB-yF-kdg" firstAttribute="top" secondItem="0xD-ZS-Rub" secondAttribute="top" id="nbp-Ip-Yzv"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5kw-26-jyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213" y="375"/>
+        </scene>
+    </scenes>
+</document>
