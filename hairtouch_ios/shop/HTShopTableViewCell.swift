@@ -13,7 +13,8 @@ class HTShopTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var gradeLabel: UILabel!
-    @IBOutlet weak var reviewLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     

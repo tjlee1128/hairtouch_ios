@@ -8,56 +8,35 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class HTShopVC: HTViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var shopTableView: UITableView!
     
-    class Shop {
-        var name: String
-        var address: String
-        
-        init(name: String, address: String) {
-            self.name = name
-            self.address = address
-        }
-    }
-    
-    var shops = [Shop]()
+    var shops = []
     
     // life cycle
     override func viewDidLoad() {
-        
-        // test data
-        let shop1 = Shop(name: "이태준 헤어", address: "경기도 부천시 원미구 심곡 1동 94-5")
-        let shop2 = Shop(name: "용대 머리짱", address: "서울특별시 관악구 행운동 112")
-        let shop3 = Shop(name: "태양 뷰티랩", address: "서울특별시 도봉구 쌍문동 신화로즈빌112")
-        let shop4 = Shop(name: "여은 헤어드레서", address: "서울특별시 강남구 역삼동 보정빌딩 1123")
-        let shop5 = Shop(name: "영일 헤어", address: "서울특별시 양천구 신월동 123")
-        let shop6 = Shop(name: "승영 미용실", address: "경기도 부천시 원미구 중동 미리내마을 103-222222222222222222")
-        let shop7 = Shop(name: "민국 헤어샵", address: "강원도 삼척시 봉포해수욕장 기와집")
-        self.shops.append(shop1)
-        self.shops.append(shop2)
-        self.shops.append(shop3)
-        self.shops.append(shop4)
-        self.shops.append(shop5)
-        self.shops.append(shop6)
-        self.shops.append(shop7)
-        
+        Alamofire.request(.GET, "http://hairtouch.dev/shops.json", parameters: nil)
+            .responseJSON { response in
+//                print(response.request)  // original URL request
+//                print(response.response) // URL response
+//                print(response.data)     // server data
+//                print(response.result)   // result of response serialization
+                
+//                if let JSON = response.result.value {
+//                    print("JSON: \(JSON)")
+//                }
+                
+                self.shops = response.result.value as! NSArray
+                
+                self.shopTableView.reloadData()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
 
-    }
-    
-    
-    // UITableViewDataSource delegate functions
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if !self.shops.isEmpty {
-            return 1
-        } else {
-            return 0
-        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,9 +50,15 @@ class HTShopVC: HTViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ShopCell", forIndexPath: indexPath) as! HTShopTableViewCell
         
-        let shopInfo = self.shops[indexPath.row]
-        cell.nameLabel.text = shopInfo.name
-        cell.addressLabel.text = shopInfo.address
+        let shopInfo = self.shops[indexPath.row] as! NSDictionary
+        let shopReviewInfo = shopInfo["review"] as! NSDictionary
+//        let grade = shopReviewInfo["grade"] as! String
+        let count = "\(shopReviewInfo["count"] as! NSInteger)"
+
+//        print(String(format: "평점 %.2f", ((grade as String) as NSString).floatValue))
+        cell.countLabel.text = "리뷰 수 \(count)"
+        cell.nameLabel.text = shopInfo["name"] as? String
+        cell.addressLabel.text = shopInfo["address"] as? String
         
         return cell
     }
@@ -82,8 +67,8 @@ class HTShopVC: HTViewController, UITableViewDelegate, UITableViewDataSource {
     // UITableViewDelegate delegate functions
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc = UIStoryboard(name: "shop", bundle: nil).instantiateViewControllerWithIdentifier("HTShopDetailVC") as! HTShopDetailVC
-        let shopInfo = self.shops[indexPath.row]
-        vc.name = shopInfo.name
+        let shopInfo = self.shops.objectAtIndex(indexPath.row)
+        vc.name = shopInfo["name"] as? String
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
