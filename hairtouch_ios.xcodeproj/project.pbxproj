@@ -23,6 +23,7 @@
 		F530F6BD1C44BE95007FA569 /* hairtouch_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530F6BC1C44BE95007FA569 /* hairtouch_iosUITests.swift */; };
 		F530F6CE1C44C09B007FA569 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530F6CD1C44C09B007FA569 /* MainVC.swift */; };
 		F530F6D01C44C94E007FA569 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530F6CF1C44C94E007FA569 /* MainCollectionViewCell.swift */; };
+		F5E5713C1C46B8A20006592A /* HTDesignerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5713B1C46B8A20006592A /* HTDesignerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		F530F6BE1C44BE95007FA569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F530F6CD1C44C09B007FA569 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		F530F6CF1C44C94E007FA569 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		F5E5713B1C46B8A20006592A /* HTDesignerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTDesignerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				F5075EEE1C45344F00BEA62F /* designer.storyboard */,
 				F5075EEA1C45334700BEA62F /* HTDesignerVC.swift */,
+				F5E5713B1C46B8A20006592A /* HTDesignerTableViewCell.swift */,
 			);
 			path = designer;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				F5075EE41C4532A400BEA62F /* HTViewController.swift in Sources */,
 				F5075EF31C4549BC00BEA62F /* HTShopDetailVC.swift in Sources */,
 				F5075EF11C453D4600BEA62F /* HTShopTableViewCell.swift in Sources */,
+				F5E5713C1C46B8A20006592A /* HTDesignerTableViewCell.swift in Sources */,
 				F530F69D1C44BE94007FA569 /* AppDelegate.swift in Sources */,
 				F5075EE91C45331100BEA62F /* HTShopVC.swift in Sources */,
 				F5075EEB1C45334700BEA62F /* HTDesignerVC.swift in Sources */,
