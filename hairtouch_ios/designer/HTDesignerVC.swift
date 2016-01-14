@@ -14,30 +14,52 @@ class HTDesignerVC: HTViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var designerTableView: UITableView!
     
-    var designerArray = [[String: AnyObject]]()
+    var designerModelArray = [HTDesignerModel]()
     
     override func viewDidLoad() {
         Alamofire.request(.GET, "http://hairtouch.dev/designers.json", parameters: nil)
             .responseJSON { response in
-                self.designerArray = response.result.value as! Array
+                if let JSON = response.result.value {
+                    if let designers = JSON as? NSArray {
+                        for designer in designers {
+                            if let dictionary = designer as? NSDictionary {
+                                let designerModel = HTDesignerModel()
+                                designerModel.id = dictionary["id"] as? Int
+                                designerModel.shopId = dictionary["shop_id"] as? Int
+                                designerModel.name = dictionary["name"] as? String
+                                designerModel.phone = dictionary["phone"] as? String
+                                designerModel.startTime = dictionary["start_time"] as? String
+                                designerModel.endTime = dictionary["end_time"] as? String
+                                designerModel.mainImage = dictionary["main_image"] as? String
+                                
+                                if let designerReview = dictionary["review"] as? NSDictionary {
+                                    let designerReviewModel = HTDesignerModel.Review()
+                                    designerReviewModel.count = designerReview["count"] as? Int
+                                    designerReviewModel.grade = designerReview["grade"] as? String
+                                    
+                                    designerModel.review = designerReviewModel
+                                }
+                                self.designerModelArray.append(designerModel)
+                            }
+                        }
+                    }
+                }
                 self.designerTableView.reloadData()
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.designerArray.count
+        return self.designerModelArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DesignerCell", forIndexPath: indexPath) as! HTDesignerTableViewCell
         
-        var designerDictionary = [String: AnyObject]()
-        designerDictionary = self.designerArray[indexPath.row] as Dictionary
-        var designerReviewDictionary = [String: AnyObject]()
-        designerReviewDictionary = designerDictionary["review"] as! Dictionary
-        
-        cell.countLabel.text = "리뷰 수 \(designerReviewDictionary["count"] as! Int)"
-        cell.nameLabel.text = designerDictionary["name"] as? String
+        cell.gradeLabel.text = String(format: "평점 : %.2f", (Float(self.designerModelArray[indexPath.row].review!.grade!))!)
+        cell.countLabel.text = "리뷰 수 : \(self.designerModelArray[indexPath.row].review!.count!)"
+        cell.nameLabel.text = self.designerModelArray[indexPath.row].name
+        let openTime = "\(self.designerModelArray[indexPath.row].startTime!) ~ \(self.designerModelArray[indexPath.row].endTime!)"
+        cell.openTimeLabel.text = openTime
         
         return cell;
     }

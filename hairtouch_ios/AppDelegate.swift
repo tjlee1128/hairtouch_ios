@@ -15,7 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        /*
+        // optional test
+        let num: Int? = 3
+        print(num!)
+        
+        let str = "123"
+        let converStr = Int(str)
+        print(converStr)
+        
+        // nil check와 unrapping 을 같이 해주는 if let
+        */
+        
         return true
     }
 

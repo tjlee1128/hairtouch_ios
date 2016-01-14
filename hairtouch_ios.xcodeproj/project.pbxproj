@@ -22,8 +22,9 @@
 		F530F6B21C44BE95007FA569 /* hairtouch_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530F6B11C44BE95007FA569 /* hairtouch_iosTests.swift */; };
 		F530F6BD1C44BE95007FA569 /* hairtouch_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530F6BC1C44BE95007FA569 /* hairtouch_iosUITests.swift */; };
 		F530F6CE1C44C09B007FA569 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530F6CD1C44C09B007FA569 /* MainVC.swift */; };
-		F530F6D01C44C94E007FA569 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F530F6CF1C44C94E007FA569 /* MainCollectionViewCell.swift */; };
 		F5E5713C1C46B8A20006592A /* HTDesignerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5713B1C46B8A20006592A /* HTDesignerTableViewCell.swift */; };
+		F5E571411C4738CE0006592A /* HTShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E571401C4738CE0006592A /* HTShopModel.swift */; };
+		F5E571431C475A5D0006592A /* HTDesignerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E571421C475A5D0006592A /* HTDesignerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +68,9 @@
 		F530F6BC1C44BE95007FA569 /* hairtouch_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hairtouch_iosUITests.swift; sourceTree = "<group>"; };
 		F530F6BE1C44BE95007FA569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F530F6CD1C44C09B007FA569 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		F530F6CF1C44C94E007FA569 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		F5E5713B1C46B8A20006592A /* HTDesignerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTDesignerTableViewCell.swift; sourceTree = "<group>"; };
+		F5E571401C4738CE0006592A /* HTShopModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTShopModel.swift; sourceTree = "<group>"; };
+		F5E571421C475A5D0006592A /* HTDesignerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTDesignerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,12 +170,12 @@
 		F530F69B1C44BE94007FA569 /* hairtouch_ios */ = {
 			isa = PBXGroup;
 			children = (
+				F5E5713D1C47389C0006592A /* model */,
 				F5075EE21C45320E00BEA62F /* base */,
 				F5075EE71C45330100BEA62F /* shop */,
 				F5075EE11C45320600BEA62F /* designer */,
 				F530F6A01C44BE94007FA569 /* Main.storyboard */,
 				F530F6CD1C44C09B007FA569 /* MainVC.swift */,
-				F530F6CF1C44C94E007FA569 /* MainCollectionViewCell.swift */,
 				F530F69C1C44BE94007FA569 /* AppDelegate.swift */,
 				F530F6A31C44BE94007FA569 /* Assets.xcassets */,
 				F530F6A51C44BE94007FA569 /* LaunchScreen.storyboard */,
@@ -198,6 +200,15 @@
 				F530F6BE1C44BE95007FA569 /* Info.plist */,
 			);
 			path = hairtouch_iosUITests;
+			sourceTree = "<group>";
+		};
+		F5E5713D1C47389C0006592A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F5E571401C4738CE0006592A /* HTShopModel.swift */,
+				F5E571421C475A5D0006592A /* HTDesignerModel.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,13 +396,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5075EE41C4532A400BEA62F /* HTViewController.swift in Sources */,
+				F5E571431C475A5D0006592A /* HTDesignerModel.swift in Sources */,
+				F5E571411C4738CE0006592A /* HTShopModel.swift in Sources */,
 				F5075EF31C4549BC00BEA62F /* HTShopDetailVC.swift in Sources */,
 				F5075EF11C453D4600BEA62F /* HTShopTableViewCell.swift in Sources */,
 				F5E5713C1C46B8A20006592A /* HTDesignerTableViewCell.swift in Sources */,
 				F530F69D1C44BE94007FA569 /* AppDelegate.swift in Sources */,
 				F5075EE91C45331100BEA62F /* HTShopVC.swift in Sources */,
 				F5075EEB1C45334700BEA62F /* HTDesignerVC.swift in Sources */,
-				F530F6D01C44C94E007FA569 /* MainCollectionViewCell.swift in Sources */,
 				F530F6CE1C44C09B007FA569 /* MainVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

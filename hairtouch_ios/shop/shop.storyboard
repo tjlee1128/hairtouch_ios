@@ -72,13 +72,13 @@
                                                             <rect key="frame" x="15" y="15" width="70" height="64"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCZ-Cs-bQL">
-                                                            <rect key="frame" x="0.0" y="82" width="100" height="15"/>
+                                                            <rect key="frame" x="0.0" y="82" width="100" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="리뷰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afq-8v-JJH">
-                                                            <rect key="frame" x="0.0" y="102" width="100" height="15"/>
+                                                            <rect key="frame" x="0.0" y="101" width="100" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -102,13 +102,13 @@
                                                     <rect key="frame" x="98" y="9" width="189" height="112"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매장명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5IE-G3-nl9">
-                                                            <rect key="frame" x="8" y="8" width="181" height="20"/>
+                                                            <rect key="frame" x="8" y="8" width="181" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHR-KV-c8W">
-                                                            <rect key="frame" x="8" y="40" width="181" height="14"/>
+                                                            <rect key="frame" x="8" y="39" width="181" height="13.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -138,6 +138,7 @@
                                         <connections>
                                             <outlet property="addressLabel" destination="JHR-KV-c8W" id="K4j-uv-SQa"/>
                                             <outlet property="countLabel" destination="afq-8v-JJH" id="jU9-YA-6WD"/>
+                                            <outlet property="gradeLabel" destination="KCZ-Cs-bQL" id="2SR-4z-WR3"/>
                                             <outlet property="mainImageView" destination="BrI-kl-Ncj" id="Jzx-NK-mVE"/>
                                             <outlet property="nameLabel" destination="5IE-G3-nl9" id="zt6-AB-kLG"/>
                                         </connections>
@@ -231,24 +232,26 @@
                                             <constraint firstAttribute="height" constant="1" id="Nno-bD-WWF"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxf-dd-GgJ">
-                                        <rect key="frame" x="160" y="0.5" width="160" height="48.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="160" id="tcW-fJ-gA5"/>
-                                        </constraints>
-                                        <state key="normal" title="디자이너"/>
-                                        <connections>
-                                            <action selector="designerInfoAction:" destination="bXp-ro-fOq" eventType="touchUpInside" id="vVR-DQ-T9I"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub4-S4-Cyo">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="upk-eb-cMg"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
                                         <state key="normal" title="매장정보"/>
                                         <connections>
                                             <action selector="shopInfoAction:" destination="bXp-ro-fOq" eventType="touchUpInside" id="YZq-eD-oQU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxf-dd-GgJ">
+                                        <rect key="frame" x="160" y="0.0" width="160" height="48.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="tcW-fJ-gA5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                        <state key="normal" title="디자이너"/>
+                                        <connections>
+                                            <action selector="designerInfoAction:" destination="bXp-ro-fOq" eventType="touchUpInside" id="vVR-DQ-T9I"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -284,13 +287,13 @@
                                                             <rect key="frame" x="15" y="15" width="70" height="64"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udq-Ln-AxB">
-                                                            <rect key="frame" x="0.0" y="82" width="100" height="15"/>
+                                                            <rect key="frame" x="0.0" y="82" width="100" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="리뷰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-oe-8Zc">
-                                                            <rect key="frame" x="0.0" y="102" width="100" height="15"/>
+                                                            <rect key="frame" x="0.0" y="101" width="100" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -314,13 +317,13 @@
                                                     <rect key="frame" x="98" y="9" width="189" height="112"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디자이너명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ms-bV-pkH">
-                                                            <rect key="frame" x="8" y="8" width="181" height="20"/>
+                                                            <rect key="frame" x="8" y="8" width="181" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영업시간" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfd-rJ-HMm">
-                                                            <rect key="frame" x="8" y="40" width="181" height="14"/>
+                                                            <rect key="frame" x="8" y="39" width="181" height="13.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -364,17 +367,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MM1-DT-XFb" userLabel="매장정보 뷰">
                                 <rect key="frame" x="0.0" y="110" width="320" height="458"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상세정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbV-IF-cUQ">
-                                        <rect key="frame" x="130.5" y="218.5" width="59" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlu-Lz-eJO" userLabel="상세 이미지 뷰">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="l4a-FI-9pV"/>
+                                        </constraints>
+                                    </scrollView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상세정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbV-IF-cUQ">
+                                        <rect key="frame" x="12" y="260" width="296" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="CbV-IF-cUQ" firstAttribute="centerY" secondItem="MM1-DT-XFb" secondAttribute="centerY" id="1JI-GV-9pa"/>
-                                    <constraint firstItem="CbV-IF-cUQ" firstAttribute="centerX" secondItem="MM1-DT-XFb" secondAttribute="centerX" id="GnS-pI-Toh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qlu-Lz-eJO" secondAttribute="trailing" id="5E8-DJ-8V7"/>
+                                    <constraint firstItem="CbV-IF-cUQ" firstAttribute="top" secondItem="Qlu-Lz-eJO" secondAttribute="bottom" constant="60" id="IbU-UC-wYh"/>
+                                    <constraint firstAttribute="trailing" secondItem="CbV-IF-cUQ" secondAttribute="trailing" constant="12" id="Wp4-NL-NEp"/>
+                                    <constraint firstItem="CbV-IF-cUQ" firstAttribute="leading" secondItem="MM1-DT-XFb" secondAttribute="leading" constant="12" id="ZzR-pb-hf7"/>
+                                    <constraint firstItem="Qlu-Lz-eJO" firstAttribute="top" secondItem="MM1-DT-XFb" secondAttribute="top" id="edi-gX-GhX"/>
+                                    <constraint firstItem="Qlu-Lz-eJO" firstAttribute="leading" secondItem="MM1-DT-XFb" secondAttribute="leading" id="hMA-vy-sMC"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -399,6 +412,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="designerTableView" destination="wBw-gH-sLc" id="Ivf-sz-7AD"/>
+                        <outlet property="imageScrollView" destination="Qlu-Lz-eJO" id="p9I-Fp-cNc"/>
                         <outlet property="shopInfoView" destination="MM1-DT-XFb" id="zPy-Fj-0Pd"/>
                         <outlet property="titleLabel" destination="kpI-dw-uYZ" id="8W4-wA-X7C"/>
                     </connections>

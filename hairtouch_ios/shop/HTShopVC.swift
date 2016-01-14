@@ -14,23 +14,38 @@ class HTShopVC: HTViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var shopTableView: UITableView!
     
-    // refactoring
-    var shopArray = [[String: AnyObject]]()
+    var shopModelArray = [HTShopModel]()
     
-    // life cycle
     override func viewDidLoad() {
         Alamofire.request(.GET, "http://hairtouch.dev/shops.json", parameters: nil)
             .responseJSON { response in
-//                print(response.request)  // original URL request
-//                print(response.response) // URL response
-//                print(response.data)     // server data
-//                print(response.result)   // result of response serialization
-                
-//                if let JSON = response.result.value {
-//                    print("JSON: \(JSON)")
-//                }
-                
-                self.shopArray = response.result.value as! Array
+                if let JSON = response.result.value {
+                    if let shops = JSON as? NSArray {
+                        for shop in shops {
+                            if let dictionary = shop as? NSDictionary {
+                                let shopModel = HTShopModel()
+                                shopModel.id = dictionary["id"] as? Int
+                                shopModel.shopOwnerId = dictionary["shop_owner_id"] as? Int
+                                shopModel.name = dictionary["name"] as? String
+                                shopModel.phone = dictionary["phone"] as? String
+                                shopModel.startTime = dictionary["start_time"] as? String
+                                shopModel.endTime = dictionary["end_time"] as? String
+                                shopModel.holiday = dictionary["holiday"] as? String
+                                shopModel.address = dictionary["address"] as? String
+                                shopModel.mainImage = dictionary["main_image"] as? String
+                                
+                                if let shopReview = dictionary["review"] as? NSDictionary {
+                                    let shopReviewModel = HTShopModel.Review()
+                                    shopReviewModel.count = shopReview["count"] as? Int
+                                    shopReviewModel.grade = shopReview["grade"] as? String
+                                    
+                                    shopModel.review = shopReviewModel
+                                }
+                                self.shopModelArray.append(shopModel)
+                            }
+                        }
+                    }
+                }
                 self.shopTableView.reloadData()
         }
     }
@@ -40,42 +55,27 @@ class HTShopVC: HTViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.shopArray.count
+        return self.shopModelArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ShopCell", forIndexPath: indexPath) as! HTShopTableViewCell
 
-//        print(String(format: "평점 %.2f", ((grade as String) as NSString).floatValue))
-        
-        // refactoring
-        var shopDictionary = [String: AnyObject]()
-        shopDictionary = self.shopArray[indexPath.row] as Dictionary
-        var shopReviewDictionary = [String: AnyObject]()
-        shopReviewDictionary = shopDictionary["review"] as! Dictionary
-        
-        let first = (shopReviewDictionary["grade"] as! String)
-        let second = first as NSString
-        let third = String(format: "%.2f", second.floatValue)
-        print(third)
-        cell.countLabel.text = "리뷰 수 \(shopReviewDictionary["count"] as! Int)"
-        cell.nameLabel.text = shopDictionary["name"] as? String
-        cell.addressLabel.text = shopDictionary["address"] as? String
+        cell.gradeLabel.text = String(format: "평점 : %.2f", (Float(self.shopModelArray[indexPath.row].review!.grade!))!)
+        cell.countLabel.text = "리뷰 수 : \(self.shopModelArray[indexPath.row].review!.count!)"
+        cell.nameLabel.text = self.shopModelArray[indexPath.row].name
+        cell.addressLabel.text = self.shopModelArray[indexPath.row].address
         
         return cell
     }
     
-    
-    // UITableViewDelegate delegate functions
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc = UIStoryboard(name: "shop", bundle: nil).instantiateViewControllerWithIdentifier("HTShopDetailVC") as! HTShopDetailVC
-        let shopInfo = self.shopArray[indexPath.row]
-        vc.shopId = shopInfo["id"] as? Int
-        vc.name = shopInfo["name"] as? String
+        vc.shopId = self.shopModelArray[indexPath.row].id!
+        vc.name = self.shopModelArray[indexPath.row].name
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    // action
     @IBAction func backAction(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
