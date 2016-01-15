@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 import Alamofire
 
-class HTHairCategoryVC: HTViewController, UITableViewDelegate, UITableViewDataSource {
+@objc public protocol HTHairCategoryDelegate {
+    func findedCategoryCodeId(categoryCodeId: Int, categoryName: String)
+}
+
+class HTHairCategoryVC: HTViewController, UITableViewDelegate, UITableViewDataSource, HTHairCategoryDelegate {
     
     @IBOutlet weak var categoryNameLabel: UILabel!
     
@@ -32,11 +36,37 @@ class HTHairCategoryVC: HTViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CategoryCell") as! HTHairCategoryTableViewCell
         
+        cell.nameLabel.text = self.categoryModelArray[indexPath.row].name
+        
         return cell
     }
     
     
-    
+    // HTHairCategoryDelegate
+    func findedCategoryCodeId(categoryCodeId: Int, categoryName: String) {
+        self.categoryModelArray.removeAll()
+        
+        let parameters = ["code": categoryCodeId]
+        
+        Alamofire.request(.GET, "http://hairtouch.dev/haircategorys.json", parameters: parameters)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    if let categorys = JSON as? NSArray {
+                        for category in categorys {
+                            if let dictionary = category as? NSDictionary {
+                                let category_model = HTHairCategoryModel()
+                                category_model.id = dictionary["id"] as? Int
+                                category_model.name = (dictionary["name"] as? String)?.stringByReplacingOccurrencesOfString(",", withString: ">")
+                                
+                                self.categoryModelArray.append(category_model)
+                            }
+                        }
+                    }
+                }
+                self.categoryNameLabel.text = categoryName
+                self.categoryTableView.reloadData()
+        }
+    }
     
     // action
     //
@@ -46,6 +76,8 @@ class HTHairCategoryVC: HTViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     @IBAction func findCategoryAction(sender: AnyObject) {
-        
+        let detailVC = (UIStoryboard(name: "hair", bundle: nil).instantiateViewControllerWithIdentifier("HTHairCategoryDetailVC")) as! HTHairCategoryDetailVC
+        detailVC.categoryVCDelegate = self
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

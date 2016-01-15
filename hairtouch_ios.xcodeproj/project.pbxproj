@@ -32,6 +32,7 @@
 		F5E5714E1C48BDEC0006592A /* HTHairCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5714D1C48BDEC0006592A /* HTHairCategoryVC.swift */; };
 		F5E571501C48BE2A0006592A /* HTHairCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5714F1C48BE2A0006592A /* HTHairCategoryTableViewCell.swift */; };
 		F5E571521C48BE660006592A /* HTHairCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E571511C48BE660006592A /* HTHairCategoryModel.swift */; };
+		F5E571541C48C1DC0006592A /* HTHairCategoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E571531C48C1DC0006592A /* HTHairCategoryDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		F5E5714D1C48BDEC0006592A /* HTHairCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTHairCategoryVC.swift; sourceTree = "<group>"; };
 		F5E5714F1C48BE2A0006592A /* HTHairCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTHairCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F5E571511C48BE660006592A /* HTHairCategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTHairCategoryModel.swift; sourceTree = "<group>"; };
+		F5E571531C48C1DC0006592A /* HTHairCategoryDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTHairCategoryDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			children = (
 				F5E5714B1C48BC360006592A /* hair.storyboard */,
 				F5E5714D1C48BDEC0006592A /* HTHairCategoryVC.swift */,
+				F5E571531C48C1DC0006592A /* HTHairCategoryDetailVC.swift */,
 				F5E5714F1C48BE2A0006592A /* HTHairCategoryTableViewCell.swift */,
 			);
 			path = hair;
@@ -429,6 +432,7 @@
 				F5075EE41C4532A400BEA62F /* HTViewController.swift in Sources */,
 				F5E571431C475A5D0006592A /* HTDesignerModel.swift in Sources */,
 				F5E571521C48BE660006592A /* HTHairCategoryModel.swift in Sources */,
+				F5E571541C48C1DC0006592A /* HTHairCategoryDetailVC.swift in Sources */,
 				F5E571411C4738CE0006592A /* HTShopModel.swift in Sources */,
 				F5E571471C47CD1B0006592A /* HTSubRegionModel.swift in Sources */,
 				F5075EF31C4549BC00BEA62F /* HTShopDetailVC.swift in Sources */,
