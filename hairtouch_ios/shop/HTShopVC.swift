@@ -16,6 +16,8 @@ class HTShopVC: HTViewController, UITableViewDelegate, UITableViewDataSource {
     
     var shopModelArray = [HTShopModel]()
     
+//    let parameters = ["mainregion": "1", "subregion": "2"]
+    
     override func viewDidLoad() {
         Alamofire.request(.GET, "http://hairtouch.dev/shops.json", parameters: nil)
             .responseJSON { response in
