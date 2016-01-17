@@ -20,9 +20,6 @@ class HTShopDetailVC: HTViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var designerTableView: UITableView!
     @IBOutlet weak var imageScrollView: UIScrollView!
     
-    var shopDetailDictionary = [String: AnyObject]()
-    var designerArray = [[String: AnyObject]]()
-    
     var designerModelArray = [HTDesignerModel]()
     
     override func viewDidLoad() {
@@ -51,8 +48,6 @@ class HTShopDetailVC: HTViewController, UITableViewDelegate, UITableViewDataSour
         // set table
         Alamofire.request(.GET, "http://hairtouch.dev/shops/\(self.shopId! as Int).json", parameters: nil)
             .responseJSON { response in
-                self.shopDetailDictionary = response.result.value as! Dictionary
-                self.designerArray = self.shopDetailDictionary["designers"] as! Array
                 
                 if let JSON = response.result.value {
                     if let designers = JSON["designers"] as? NSArray {
@@ -100,6 +95,13 @@ class HTShopDetailVC: HTViewController, UITableViewDelegate, UITableViewDataSour
         cell.openTimeLabel.text = openTime
         
         return cell;
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let designerDetailVC = (UIStoryboard (name: "designer", bundle: nil).instantiateViewControllerWithIdentifier("HTDesignerDetailVC")) as! HTDesignerDetailVC
+        designerDetailVC.id = designerModelArray[indexPath.row].id
+        designerDetailVC.name = designerModelArray[indexPath.row].name
+        self.navigationController?.pushViewController(designerDetailVC, animated: true)
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

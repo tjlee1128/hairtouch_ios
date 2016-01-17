@@ -64,6 +64,13 @@ class HTDesignerVC: HTViewController, UITableViewDelegate, UITableViewDataSource
         return cell;
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailVC = (UIStoryboard (name: "designer", bundle: nil).instantiateViewControllerWithIdentifier("HTDesignerDetailVC")) as! HTDesignerDetailVC
+        detailVC.id = self.designerModelArray[indexPath.row].id
+        detailVC.name = self.designerModelArray[indexPath.row].name
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     @IBAction func backAction(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }

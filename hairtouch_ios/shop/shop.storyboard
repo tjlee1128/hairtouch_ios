@@ -65,7 +65,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="129.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtQ-TJ-dsZ">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtQ-TJ-dsZ" userLabel="좌측 뷰">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="130"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile" translatesAutoresizingMaskIntoConstraints="NO" id="BrI-kl-Ncj">
@@ -98,7 +98,7 @@
                                                         <constraint firstAttribute="width" constant="100" id="wtc-Mj-Epl"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFa-Ax-0W2">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFa-Ax-0W2" userLabel="우측 뷰">
                                                     <rect key="frame" x="98" y="9" width="189" height="112"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매장명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5IE-G3-nl9">
@@ -367,27 +367,43 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MM1-DT-XFb" userLabel="매장정보 뷰">
                                 <rect key="frame" x="0.0" y="110" width="320" height="458"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlu-Lz-eJO" userLabel="상세 이미지 뷰">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNR-Qz-3qx" userLabel="매장정보 스크롤 뷰">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="458"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cm9-oK-smb" userLabel="매장상세정보 뷰">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="458"/>
+                                                <subviews>
+                                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGx-dN-zMw" userLabel="상세 이미지 뷰">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="200" id="VJK-gf-8ZL"/>
+                                                        </constraints>
+                                                    </scrollView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="hGx-dN-zMw" secondAttribute="trailing" id="5Mj-O9-xtJ"/>
+                                                    <constraint firstItem="hGx-dN-zMw" firstAttribute="top" secondItem="cm9-oK-smb" secondAttribute="top" id="SaC-FH-bzA"/>
+                                                    <constraint firstItem="hGx-dN-zMw" firstAttribute="leading" secondItem="cm9-oK-smb" secondAttribute="leading" id="kvA-kQ-qqt"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="l4a-FI-9pV"/>
+                                            <constraint firstAttribute="bottom" secondItem="cm9-oK-smb" secondAttribute="bottom" id="27Z-fu-SON"/>
+                                            <constraint firstAttribute="trailing" secondItem="cm9-oK-smb" secondAttribute="trailing" id="DVH-l9-bnH"/>
+                                            <constraint firstItem="cm9-oK-smb" firstAttribute="top" secondItem="zNR-Qz-3qx" secondAttribute="top" id="bVI-oY-Q2w"/>
+                                            <constraint firstItem="cm9-oK-smb" firstAttribute="leading" secondItem="zNR-Qz-3qx" secondAttribute="leading" id="gum-Sk-c9h"/>
                                         </constraints>
                                     </scrollView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상세정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbV-IF-cUQ">
-                                        <rect key="frame" x="12" y="260" width="296" height="19.5"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Qlu-Lz-eJO" secondAttribute="trailing" id="5E8-DJ-8V7"/>
-                                    <constraint firstItem="CbV-IF-cUQ" firstAttribute="top" secondItem="Qlu-Lz-eJO" secondAttribute="bottom" constant="60" id="IbU-UC-wYh"/>
-                                    <constraint firstAttribute="trailing" secondItem="CbV-IF-cUQ" secondAttribute="trailing" constant="12" id="Wp4-NL-NEp"/>
-                                    <constraint firstItem="CbV-IF-cUQ" firstAttribute="leading" secondItem="MM1-DT-XFb" secondAttribute="leading" constant="12" id="ZzR-pb-hf7"/>
-                                    <constraint firstItem="Qlu-Lz-eJO" firstAttribute="top" secondItem="MM1-DT-XFb" secondAttribute="top" id="edi-gX-GhX"/>
-                                    <constraint firstItem="Qlu-Lz-eJO" firstAttribute="leading" secondItem="MM1-DT-XFb" secondAttribute="leading" id="hMA-vy-sMC"/>
+                                    <constraint firstAttribute="bottom" secondItem="zNR-Qz-3qx" secondAttribute="bottom" id="QOP-aw-57N"/>
+                                    <constraint firstAttribute="trailing" secondItem="zNR-Qz-3qx" secondAttribute="trailing" id="SvQ-mp-NDw"/>
+                                    <constraint firstItem="zNR-Qz-3qx" firstAttribute="leading" secondItem="MM1-DT-XFb" secondAttribute="leading" id="UT0-wd-kqQ"/>
+                                    <constraint firstItem="zNR-Qz-3qx" firstAttribute="top" secondItem="MM1-DT-XFb" secondAttribute="top" id="cx8-zX-sv8"/>
+                                    <constraint firstItem="cm9-oK-smb" firstAttribute="height" secondItem="MM1-DT-XFb" secondAttribute="height" priority="250" id="kkk-tQ-HgF"/>
+                                    <constraint firstItem="cm9-oK-smb" firstAttribute="width" secondItem="MM1-DT-XFb" secondAttribute="width" id="uja-N9-ot2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -412,7 +428,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="designerTableView" destination="wBw-gH-sLc" id="Ivf-sz-7AD"/>
-                        <outlet property="imageScrollView" destination="Qlu-Lz-eJO" id="p9I-Fp-cNc"/>
+                        <outlet property="imageScrollView" destination="hGx-dN-zMw" id="W1Z-jH-ls0"/>
                         <outlet property="shopInfoView" destination="MM1-DT-XFb" id="zPy-Fj-0Pd"/>
                         <outlet property="titleLabel" destination="kpI-dw-uYZ" id="8W4-wA-X7C"/>
                     </connections>
