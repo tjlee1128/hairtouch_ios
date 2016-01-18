@@ -2,15 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "shop_image1.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ic_call_orange@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ic_call_orange@3x.png",
       "scale" : "3x"
     }
   ],
