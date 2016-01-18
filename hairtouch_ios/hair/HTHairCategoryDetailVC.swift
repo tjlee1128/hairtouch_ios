@@ -23,7 +23,7 @@ class HTHairCategoryDetailVC: HTViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         
-        Alamofire.request(.GET, "http://hairtouch.dev/haircategorycodes.json", parameters: nil)
+        Alamofire.request(.GET, "http://10.10.0.162:3000/haircategorycodes.json", parameters: nil)
             .responseJSON { response in
                 if let JSON = response.result.value {
                     if let category_codes = JSON as? NSArray {

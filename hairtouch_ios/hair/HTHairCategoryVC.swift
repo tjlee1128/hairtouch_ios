@@ -48,7 +48,7 @@ class HTHairCategoryVC: HTViewController, UITableViewDelegate, UITableViewDataSo
         
         let parameters = ["code": categoryCodeId]
         
-        Alamofire.request(.GET, "http://hairtouch.dev/haircategorys.json", parameters: parameters)
+        Alamofire.request(.GET, "http://10.10.0.162:3000/haircategorys.json", parameters: parameters)
             .responseJSON { response in
                 if let JSON = response.result.value {
                     if let categorys = JSON as? NSArray {

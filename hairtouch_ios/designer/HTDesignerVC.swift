@@ -17,7 +17,7 @@ class HTDesignerVC: HTViewController, UITableViewDelegate, UITableViewDataSource
     var designerModelArray = [HTDesignerModel]()
     
     override func viewDidLoad() {
-        Alamofire.request(.GET, "http://hairtouch.dev/designers.json", parameters: nil)
+        Alamofire.request(.GET, "http://10.10.0.162:3000/designers.json", parameters: nil)
             .responseJSON { response in
                 if let JSON = response.result.value {
                     if let designers = JSON as? NSArray {

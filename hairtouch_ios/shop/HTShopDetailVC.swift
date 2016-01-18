@@ -46,7 +46,7 @@ class HTShopDetailVC: HTViewController, UITableViewDelegate, UITableViewDataSour
         self.imageScrollView.contentSize = CGSizeMake(self.imageScrollView.frame.width*3, self.imageScrollView.frame.height)
         
         // set table
-        Alamofire.request(.GET, "http://hairtouch.dev/shops/\(self.shopId! as Int).json", parameters: nil)
+        Alamofire.request(.GET, "http://10.10.0.162:3000/shops/\(self.shopId! as Int).json", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {

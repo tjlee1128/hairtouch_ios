@@ -22,7 +22,7 @@ class MainVC: HTViewController, MainDelegate {
     override func viewDidLoad() {
         self.navigationController?.navigationBarHidden = true
         
-        Alamofire.request(.GET, "http://hairtouch.dev/regions.json", parameters: nil)
+        Alamofire.request(.GET, "http://10.10.0.162:3000/regions.json", parameters: nil)
             .responseJSON { response in
                 if let JSON = response.result.value {
                     if let mainRegionJSON = JSON["mainregion"] as? NSArray {
